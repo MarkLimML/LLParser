@@ -1,0 +1,24 @@
+First Sets:
+
+First(expr): { TERMINAL,(,E,'' }
+First(symbol): { *,+,?,'' }
+First(union): { U,'' }
+First(id): { TERMINAL,E }
+
+First of terminals are the set of itself...
+
+Follow Sets:
+
+Follow(expr): { ),$ }
+Follow(symbol): { ),U,TERMINAL,(,E,$ }
+Follow(union): { ),TERMINAL,(,E,$ }
+Follow(id): { ),U,TERMINAL,(,E,$ }
+
+
+LL(1) Parsing Table:
+
+        TERMINAL         (              )      *      +      ?      U     E         $
+expr    id u e           ( e ) s u e    ''                                id u e    ''
+symbol  ''               ''             ''     *      +      ?      ''    ''        ''
+union   ''               ''             ''                          U     ''        ''
+id      TERMINAL s                                                        E
